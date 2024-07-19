@@ -17,7 +17,7 @@ Run the command "php artisan db:seed --class=UsersTableSeeder"
 
 Run the command "php artisan serve"
 
-Please change the MailId in App/Jobs/SendFormCreatedNotification
+Please change the email in App/Jobs/SendFormCreatedNotification
 
 Run the command "php artisan queue:work"
 
