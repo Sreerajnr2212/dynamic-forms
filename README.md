@@ -15,7 +15,7 @@ Run the command "php artisan migrate:fresh --seed"
 
 Run the command "php artisan serve"
 
-Please change the MailId in App/Mail/SendMail
+Please change the MailId in App/Jobs/SendFormCreatedNotification
 
 Run the command "php artisan queue:work"
 

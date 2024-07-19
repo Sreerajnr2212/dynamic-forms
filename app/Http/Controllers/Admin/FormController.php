@@ -8,7 +8,7 @@ use App\Models\Form;
 use App\Models\FormField;
 use App\Http\Requests\FormValidRequest;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\SendMail;
+use App\Jobs\SendFormCreatedNotification;
 
 class FormController extends Controller
 {
@@ -34,7 +34,7 @@ class FormController extends Controller
                 'options' => $values,
             ]);
         }
-        Mail::to('snrckd@gmail.com')->queue(new SendMail());
+        SendFormCreatedNotification::dispatch($form);
         return redirect()->route('form.list')->with('success', 'Form saved successfully.');
     }
     public function edit(string $id)
