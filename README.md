@@ -11,7 +11,9 @@ Run the command "composer install"
 
 Run the command "php artisan key:generate"
 
-Run the command "php artisan migrate:fresh --seed"
+Run the command "php artisan migrate"
+
+Run the command "php artisan db:seed --class=UsersTableSeeder"
 
 Run the command "php artisan serve"
 

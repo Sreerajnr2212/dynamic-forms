@@ -128,14 +128,13 @@
 <script type="text/javascript">
     $(document).ready(function () {
         var lastIndex = {{ old('fields', $geForm->fields)->count() - 1 }};
-
-        // Event delegation for dynamic elements
         $(document).on('change', '.field_type', function () {
             var selectedValue = $(this).val();
             var optionsDiv = $(this).closest('.form-clone').find('.options_div');
 
             if (selectedValue === 'select' || selectedValue === 'checkbox' || selectedValue === 'radio') {
                 optionsDiv.show();
+                optionsDiv.find('input[name^="value"]').attr('required', true);
             } else {
                 optionsDiv.hide();
             }
@@ -158,7 +157,9 @@
             $clonedRow.find('input[name^="value"]').attr('name', 'value[' + lastIndex + '][]');
             $clonedRow.find('input').each(function () {
                 $(this).val('').attr('required', true);
+                
             });
+            $clonedRow.find('input[name^="value"]').attr('required', false);
             
             $('#form-container').append($clonedRow);
         });
